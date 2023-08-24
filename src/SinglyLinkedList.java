@@ -16,31 +16,51 @@ public class SinglyLinkedList<T> {
 
     /**
      * Adds the element to the front of the list.
-     *
+     * <p>
      * Method should run in O(1) time.
      *
      * @param data the data to add to the front of the list
      * @throws java.lang.IllegalArgumentException if data is null
      */
     public void addToFront(T data) {
-        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        if (data != null) {
+            SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data);
+            if (size == 0) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                newNode.setNext(head.getNext());
+                head = newNode;
+                size++;
+            }
+        } else {
+            throw new IllegalArgumentException("Error: Invalid data!");
+        }
     }
 
     /**
      * Adds the element to the back of the list.
-     *
+     * <p>
      * Method should run in O(1) time.
      *
      * @param data the data to add to the back of the list
      * @throws java.lang.IllegalArgumentException if data is null
      */
     public void addToBack(T data) {
-        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        if (data != null){
+            SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data);
+            newNode.setNext(head.getNext());
+            head = newNode.getNext();
+            size++;
+        }
+        else {
+            throw new IllegalArgumentException("Error: Invalid data!");
+        }
     }
 
     /**
      * Removes and returns the first data of the list.
-     *
+     * <p>
      * Method should run in O(1) time.
      *
      * @return the data formerly located at the front of the list
@@ -52,7 +72,7 @@ public class SinglyLinkedList<T> {
 
     /**
      * Removes and returns the last data of the list.
-     *
+     * <p>
      * Method should run in O(n) time.
      *
      * @return the data formerly located at the back of the list
@@ -64,7 +84,7 @@ public class SinglyLinkedList<T> {
 
     /**
      * Returns the head node of the list.
-     *
+     * <p>
      * For grading purposes only. You shouldn't need to use this method since
      * you have direct access to the variable.
      *
@@ -77,7 +97,7 @@ public class SinglyLinkedList<T> {
 
     /**
      * Returns the tail node of the list.
-     *
+     * <p>
      * For grading purposes only. You shouldn't need to use this method since
      * you have direct access to the variable.
      *
@@ -90,7 +110,7 @@ public class SinglyLinkedList<T> {
 
     /**
      * Returns the size of the list.
-     *
+     * <p>
      * For grading purposes only. You shouldn't need to use this method since
      * you have direct access to the variable.
      *
