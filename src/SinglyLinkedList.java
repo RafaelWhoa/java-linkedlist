@@ -29,7 +29,7 @@ public class SinglyLinkedList<T> {
                 head = newNode;
                 tail = newNode;
             } else {
-                newNode.setNext(head.getNext());
+                newNode.setNext(head);
                 head = newNode;
             }
             size++;
@@ -53,8 +53,7 @@ public class SinglyLinkedList<T> {
                 head = newNode;
             }
             else{
-                newNode.setNext(head.getNext());
-                head = newNode.getNext();
+                tail.setNext(newNode);
             }
             tail = newNode;
             size++;
@@ -74,6 +73,7 @@ public class SinglyLinkedList<T> {
      */
     public T removeFromFront() {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        return null;
     }
 
     /**
@@ -86,6 +86,7 @@ public class SinglyLinkedList<T> {
      */
     public T removeFromBack() {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        return null;
     }
 
     /**
