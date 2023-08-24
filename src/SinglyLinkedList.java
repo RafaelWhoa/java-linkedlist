@@ -31,8 +31,8 @@ public class SinglyLinkedList<T> {
             } else {
                 newNode.setNext(head.getNext());
                 head = newNode;
-                size++;
             }
+            size++;
         } else {
             throw new IllegalArgumentException("Error: Invalid data!");
         }
@@ -49,8 +49,14 @@ public class SinglyLinkedList<T> {
     public void addToBack(T data) {
         if (data != null){
             SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data);
-            newNode.setNext(head.getNext());
-            head = newNode.getNext();
+            if (size == 0){
+                head = newNode;
+            }
+            else{
+                newNode.setNext(head.getNext());
+                head = newNode.getNext();
+            }
+            tail = newNode;
             size++;
         }
         else {
