@@ -116,6 +116,12 @@ public class SinglyLinkedList<T> {
         }
     }
 
+    /**
+     * Returns recursively the node before tail.
+     *
+     * @param currentNode current node for recursion.
+     * @return the node before tail
+     */
     private SinglyLinkedListNode<T> rGetElementBeforeTail(SinglyLinkedListNode<T> currentNode) {
         if (currentNode.getNext() == tail) {
             return currentNode;
