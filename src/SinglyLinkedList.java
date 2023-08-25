@@ -49,18 +49,16 @@ public class SinglyLinkedList<T> {
      * @throws java.lang.IllegalArgumentException if data is null
      */
     public void addToBack(T data) {
-        if (data != null){
+        if (data != null) {
             SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data);
-            if (size == 0){
+            if (size == 0) {
                 head = newNode;
-            }
-            else{
+            } else {
                 tail.setNext(newNode);
             }
             tail = newNode;
             size++;
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Error: Invalid data!");
         }
     }
@@ -74,13 +72,18 @@ public class SinglyLinkedList<T> {
      * @throws java.util.NoSuchElementException if the list is empty
      */
     public T removeFromFront() {
-        if (size != 0){
+        if (size > 1) {
             T elementToRemove = head.getData();
             head = head.getNext();
-            size --;
+            size--;
             return elementToRemove;
-        }
-        else {
+        } else if (size == 1) {
+            T elementToRemove = head.getData();
+            head = null;
+            tail = null;
+            size--;
+            return elementToRemove;
+        } else {
             throw new NoSuchElementException("Error: List must not be empty!");
         }
     }
@@ -94,8 +97,30 @@ public class SinglyLinkedList<T> {
      * @throws java.util.NoSuchElementException if the list is empty
      */
     public T removeFromBack() {
-        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-        return null;
+        if (size > 1) {
+            SinglyLinkedListNode<T> newTail = rGetElementBeforeTail(head);
+            T elementToRemove = newTail.getNext().getData();
+            tail = newTail;
+            newTail.setNext(null);
+            size--;
+            return elementToRemove;
+        } else if (size == 1){
+            T elementToRemove = head.getData();
+            head = null;
+            tail = null;
+            size--;
+            return elementToRemove;
+        }
+        else {
+            throw new NoSuchElementException("Error: List must not be empty!");
+        }
+    }
+
+    private SinglyLinkedListNode<T> rGetElementBeforeTail(SinglyLinkedListNode<T> currentNode) {
+        if (currentNode.getNext() == tail) {
+            return currentNode;
+        }
+        return rGetElementBeforeTail(currentNode.getNext());
     }
 
     /**

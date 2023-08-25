@@ -7,7 +7,11 @@ public class Main {
         newList.addToFront(3);
         newList.addToBack(4);
         newList.addToBack(5);
-        System.out.println("Removed element: " + newList.removeFromFront());
+        System.out.println("Removed from front: " + newList.removeFromFront());
+        System.out.println("Removed from back: " + newList.removeFromBack());
+        System.out.println("Removed from back: " + newList.removeFromBack());
+        System.out.println("Removed from back: " + newList.removeFromBack());
+        System.out.println("Removed from front: " + newList.removeFromFront());
 
         rPrintElements(newList.getHead());
         System.out.println("Size: " + newList.size());
