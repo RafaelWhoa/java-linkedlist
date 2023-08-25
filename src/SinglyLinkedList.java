@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /**
  * Your implementation of a Singly-Linked List.
  */
@@ -72,8 +74,15 @@ public class SinglyLinkedList<T> {
      * @throws java.util.NoSuchElementException if the list is empty
      */
     public T removeFromFront() {
-        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-        return null;
+        if (size != 0){
+            T elementToRemove = head.getData();
+            head = head.getNext();
+            size --;
+            return elementToRemove;
+        }
+        else {
+            throw new NoSuchElementException("Error: List must not be empty!");
+        }
     }
 
     /**

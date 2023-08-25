@@ -7,6 +7,7 @@ public class Main {
         newList.addToFront(3);
         newList.addToBack(4);
         newList.addToBack(5);
+        System.out.println("Removed element: " + newList.removeFromFront());
 
         rPrintElements(newList.getHead());
         System.out.println("Size: " + newList.size());
